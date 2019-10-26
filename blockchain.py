@@ -129,9 +129,7 @@ class Blockchain(object):
         
         Return <int>: Index of the Block that will hold this transaction
         '''
-
-        print('new transaction inside class')
-
+        
         self.current_transactions.append({
             'sender':sender,
             'recipient':recipient,
@@ -240,7 +238,6 @@ def new_transaction():
         return 'Missing values', 400
     
     # Create new transaction
-    print('about to add a new transaction')
     index = blockchain.new_transaction(values['sender'],values['recipient'],values['amount'])
 
     response = {'message':f'Transaction will be added to Block {index}'}
@@ -292,7 +289,7 @@ if __name__ == '__main__':
     from argparse import ArgumentParser
 
     parser = ArgumentParser()
-    parser.add_argument('-p', '--port', default=5002, type=int, help='port to listen on')
+    parser.add_argument('-p', '--port', default=5000, type=int, help='port to listen on')
     args = parser.parse_args()
     port = args.port
 
